@@ -1,0 +1,49 @@
+﻿@model SegundoExemploMVC.Models.Pessoa
+@{
+    ViewBag.Title = "Lista";
+}
+
+<h2>Lista</h2>
+<!--Não usando View Tipada
+<div>
+    <b>PessoaId</b>
+</div>
+<div>
+    @ViewData["pessoaId"]
+</div>
+<div>
+    <b>Nome</b>
+</div>
+<div>
+    @ViewData["nome"]
+</div>
+<div>
+    <b>Twitter</b>
+</div>
+<div>
+    @ViewData["twitter"]
+</div>
+
+<a href="~/" title="Voltar">Voltar</a>
+-->
+<!--Usando View Tipada-->
+<div>
+    <b>PessoaId</b>
+</div>
+<div>
+    @Model.PessoaId
+</div>
+<div>
+    <b>Nome</b>
+</div>
+<div>
+    @Model.Nome
+</div>
+<div>
+    <b>Twitter</b>
+</div>
+<div>
+    @Model.Twitter
+</div>
+
+<a href="~/" title="Voltar">Voltar</a>

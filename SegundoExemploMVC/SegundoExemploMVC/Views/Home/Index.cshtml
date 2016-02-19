@@ -1,0 +1,108 @@
+﻿<!--Cria a referência a classe Pessoa-->
+@model SegundoExemploMVC.Models.Pessoa
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+<!-- Passo 1 -> Primeira forma de receber dados do controller - usando ViewData
+<p>@ViewData["pessoaId"]</p>
+<p>@ViewData["nome"]</p>
+<p>@ViewData["twitter"]</p>
+-->
+<!-- Passo 2 -> Segunda forma de receber dados do controller - usando ViewBag
+<p>@ViewBag.pessoaId</p>
+<p>@ViewBag.nome</p>
+<p>@ViewBag.twitter</p>
+-->
+<!-- Passo 3 -> Terceira forma de receber dados do controller - View Tipada
+<p>@Model.PessoaId</p>
+<p>@Model.Nome</p>
+<p>@Model.Twitter</p>
+-->
+<!-- Passo 4 - Exemplo de Form POST
+<form action="Home/Lista" method="post">
+    <fieldset>
+        <legend>Pessoa</legend>
+        <div>
+            <label for="pessoaId">Código</label>
+        </div>
+        <div>
+            <input type="number" value="@Model.PessoaId" id="pessoaId" name="pessoaId" />
+        </div>
+        <div>
+            <label for="nome">Nome</label>
+        </div>
+        <div>
+            <input type="text" value="@Model.Nome" id="nome" name="nome" />
+        </div>
+        <div>
+            <label for="twitter">Twitter</label>
+        </div>
+        <div>
+            <input type="text" value="@Model.Twitter" id="twitter" name="twitter" />
+        </div>
+        <br />
+        <div>
+            <input type="submit" value="Enviar" />
+        </div>
+    </fieldset>
+</form>
+-->
+<!-- Passo 5 - Exemplo de Form GET
+<form action="Home/Lista" method="get">
+    <fieldset>
+        <legend>Pessoa</legend>
+        <div>
+            <label for="pessoaId">Código</label>
+        </div>
+        <div>
+            <input type="number" value="@Model.PessoaId" id="pessoaId" name="pessoaId" />
+        </div>
+        <div>
+            <label for="nome">Nome</label>
+        </div>
+        <div>
+            <input type="text" value="@Model.Nome" id="nome" name="nome" />
+        </div>
+        <div>
+            <label for="twitter">Twitter</label>
+        </div>
+        <div>
+            <input type="text" value="@Model.Twitter" id="twitter" name="twitter" />
+        </div>
+        <br />
+        <div>
+            <input type="submit" value="Enviar" />
+        </div>
+    </fieldset>
+</form>
+-->
+<!-- Passo 6 - Exemplo de Form POST usando Helpers-->
+@using (Html.BeginForm("Lista", "Home", FormMethod.Post))
+{
+    <fieldset>
+        <legend>Pessoa</legend>
+        <div>
+            <label for="pessoaId">Código</label>
+        </div>
+        <div>
+            @Html.EditorFor(x => x.PessoaId)
+        </div>
+        <div>
+            <label for="nome">Nome</label>
+        </div>
+        <div>
+            @Html.EditorFor(x => x.Nome)
+        </div>
+        <div>
+            <label for="twitter">Twitter</label>
+        </div>
+        <div>
+            @Html.EditorFor(x => x.Twitter)
+        </div>
+        <br />
+        <div>
+            <input type="submit" value="Enviar" />
+        </div>
+    </fieldset>
+}
